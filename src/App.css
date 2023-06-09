@@ -1,3 +1,9 @@
-input {
-    border: 1px solid orange;
+
+input, textarea {
+    margin-bottom: 15px;
+    height: 30px;
+    text-indent: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    display: block;
 }
