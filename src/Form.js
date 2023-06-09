@@ -9,9 +9,8 @@ function Form() {
         comments: "",
         isFriendly: true,
         employmentStatus: '',
+        favColor: '',
     });
-
-    console.log(formData.employmentStatus);
 
     function handleChange(event){
         const {name, value, type, checked} = event.target
@@ -22,9 +21,14 @@ function Form() {
             })
         })
     };
+    function submitForm(event) {
+        event.preventDefault();
+        //submitAPI()
+        console.log(formData)
+    }
 
     return (
-        <form>
+        <form onSubmit={submitForm}>
             <input 
                 type='text'
                 placeholder='first name'
@@ -80,6 +84,27 @@ function Form() {
                 <label htmlFor='full-time'>Full-time</label>
                 <br />
             </fieldset>
+            <br />
+            <label>Choose your favourite color</label>
+            <select
+                id='favColor'
+                name='favColor'
+                onChange={handleChange}
+                value={formData.favColor}
+            >
+                <option value='' selected >-- Choose --</option>
+                <option value='red' >Red</option>
+                <option value='orange' >Orange</option>
+                <option value='yellow' >Yellow</option>
+                <option value='blue' >Blue</option>
+                <option value='violet' >Voilet</option>
+                <option value='green' >Green</option>
+                <option value='black' >Black</option>
+                <option value='purple' >Purple</option>
+            </select>
+            <br />
+            <br />
+            <button>Submit</button>
         </form>
     )
 }
